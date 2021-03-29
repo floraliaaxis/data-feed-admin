@@ -15,7 +15,7 @@
     }
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "yarn prettier"
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
