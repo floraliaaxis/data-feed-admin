@@ -16,7 +16,9 @@ const LoginPage = () => {
             height={30}
           />
         </Header>
-        <Content><Login /></Content>
+        <Content>
+          <Login />
+        </Content>
       </Layout>
       <style jsx>{`
         .ant-layout-header {

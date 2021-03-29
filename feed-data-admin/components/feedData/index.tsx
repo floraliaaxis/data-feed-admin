@@ -58,25 +58,27 @@ const FeedData = () => {
   ]
 
   return (
-        <>
-            <Card title="" extra={<Button type={'primary'}>Run Data Feed</Button>}>
-                <Row gutter={16}>
-                    <Col>
-                        <Button type={'primary'}>Search Job Name <SearchOutlined/></Button>
-                    </Col>
-                    <Col>
-                        <Button type={'primary'}>Status</Button>
-                    </Col>
-                    <Col>
-                        <Button type={'primary'}>Start Date</Button>
-                    </Col>
-                    <Col>
-                        <Button type={'primary'}>End Date</Button>
-                    </Col>
-                </Row>
-                <Table dataSource={dataSource} columns={columns} className="mt-30" />
-            </Card>
-        </>
+    <>
+      <Card title="" extra={<Button type={'primary'}>Run Data Feed</Button>}>
+        <Row gutter={16}>
+          <Col>
+            <Button type={'primary'}>
+              Search Job Name <SearchOutlined />
+            </Button>
+          </Col>
+          <Col>
+            <Button type={'primary'}>Status</Button>
+          </Col>
+          <Col>
+            <Button type={'primary'}>Start Date</Button>
+          </Col>
+          <Col>
+            <Button type={'primary'}>End Date</Button>
+          </Col>
+        </Row>
+        <Table dataSource={dataSource} columns={columns} className="mt-30" />
+      </Card>
+    </>
   )
 }
 

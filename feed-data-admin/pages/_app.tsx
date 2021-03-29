@@ -3,11 +3,11 @@ import 'antd/dist/antd.less'
 import '../styles/global.less'
 
 interface Props {
-  Component: any;
-  pageProps: object;
+  Component: any
+  pageProps: object
 }
 
-const AdminApp = ({ Component, pageProps }:Props) => {
+const AdminApp = ({ Component, pageProps }: Props) => {
   return <Component {...pageProps} />
 }
 

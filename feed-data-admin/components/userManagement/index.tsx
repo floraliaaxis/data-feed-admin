@@ -16,62 +16,68 @@ const UserManagement = () => {
   ]
 
   return (
-        <>
-            <Card title="User Management">
-                <Form name="createUser" {...layout}>
-                    <Row gutter={16}>
-                        <Col span={8}>
-                            <Form.Item
-                                label='Username'
-                                name='username'
-                                rules={[{ required: true, message: 'Please input your username!' }]}
-                            >
-                                <Input/>
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item
-                                label='Password'
-                                name='password'
-                                rules={[{ required: true, message: 'Please input your password!' }]}
-                                className="mb-0"
-                            >
-                                <Input.Password/>
-                            </Form.Item>
-                        </Col>
-                    </Row>
-                    <Row gutter={16}>
-                        <Col span={8}>
-                            <Form.Item
-                                label='User Role'
-                                name='role'
-                                rules={[{ required: true, message: '' }]}
-                            >
-                                <Radio.Group options={roleOptions} defaultValue={'admin'} />
-                            </Form.Item>
-                        </Col>
-                        <Col span={8}>
-                            <Form.Item
-                                label='Email'
-                                name='email'
-                                rules={[{ required: true, message: 'Please input your email!' }]}
-                            >
-                                <Input type={'email'}/>
-                            </Form.Item>
-                        </Col>
-                    </Row>
-                    <Row gutter={16}>
-                        <Col span={8}>
-                        <Form.Item {...tailLayout}>
-                            <Button type='primary' htmlType='submit'>
-                                Crate User
-                            </Button>
-                        </Form.Item>
-                        </Col>
-                    </Row>
-                </Form>
-            </Card>
-        </>
+    <>
+      <Card title="User Management">
+        <Form name="createUser" {...layout}>
+          <Row gutter={16}>
+            <Col span={8}>
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[
+                  { required: true, message: 'Please input your username!' }
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: 'Please input your password!' }
+                ]}
+                className="mb-0"
+              >
+                <Input.Password />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={8}>
+              <Form.Item
+                label="User Role"
+                name="role"
+                rules={[{ required: true, message: '' }]}
+              >
+                <Radio.Group options={roleOptions} defaultValue={'admin'} />
+              </Form.Item>
+            </Col>
+            <Col span={8}>
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                  { required: true, message: 'Please input your email!' }
+                ]}
+              >
+                <Input type={'email'} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={8}>
+              <Form.Item {...tailLayout}>
+                <Button type="primary" htmlType="submit">
+                  Crate User
+                </Button>
+              </Form.Item>
+            </Col>
+          </Row>
+        </Form>
+      </Card>
+    </>
   )
 }
 
