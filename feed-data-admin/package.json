@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix --ext .js,.jsx,ts,tsx .",
-    "prettier": "prettier --check ./components"
+    "prettier": "prettier --check ."
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
