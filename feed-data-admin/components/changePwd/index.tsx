@@ -2,7 +2,7 @@ import React from 'react'
 import {Button, Form, Row, Col, Input, Card} from 'antd'
 
 const layout = {
-  labelCol: { span: 6 },
+  labelCol: {span:6},
   wrapperCol: { span: 18 }
 }
 
