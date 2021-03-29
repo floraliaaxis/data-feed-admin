@@ -7,15 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix --ext .js,.jsx,ts,tsx .",
-    "prettier": "prettier --check ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*": "yarn prettier"
+    "prettier": "prettier --check .",
+    "precommit": "yarn lint && yarn prettier",
+    "prepare": "cd .. && husky install && husky add .husky/pre-commit 'yarn precommit'"
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
