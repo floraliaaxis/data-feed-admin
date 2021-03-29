@@ -9,7 +9,7 @@
     "lint": "eslint --fix --ext .js,.jsx,ts,tsx .",
     "prettier": "prettier --write .",
     "precommit": "yarn lint && yarn prettier",
-    "prepare": "cd .. && husky install && husky add .husky/pre-commit && husky add .husky/pre-commit \"yarn precommit\""
+    "prepare": "cd .. && husky install && husky add .husky/pre-commit && husky add .husky/pre-commit \"cd feed-data-admin && yarn precommit\""
   },
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
