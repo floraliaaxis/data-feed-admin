@@ -13,7 +13,7 @@ const Header = () => {
           <Button key="2">Logout</Button>
         ]}
       />
-      <style jsx>{``}</style>
+      <style jsx>{''}</style>
     </>
   )
 }
