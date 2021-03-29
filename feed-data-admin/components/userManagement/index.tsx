@@ -1,22 +1,21 @@
-import {Card, Form, Input, Row, Col, Radio, Button} from 'antd'
-import React from "react";
+import { Card, Form, Input, Row, Col, Radio, Button } from 'antd'
+import React from 'react'
 const layout = {
-    labelCol: {span: 6},
-    wrapperCol: {span: 18}
+  labelCol: { span: 6 },
+  wrapperCol: { span: 18 }
 }
 
 const tailLayout = {
-    wrapperCol: {offset: 6, span: 18}
+  wrapperCol: { offset: 6, span: 18 }
 }
 
 const UserManagement = () => {
+  const roleOptions = [
+    { label: 'Administrator', value: 'admin' },
+    { label: 'Read Only', value: 'readOnly' }
+  ]
 
-    const roleOptions = [
-        { label: 'Administrator', value: 'admin' },
-        { label: 'Read Only', value: 'readOnly' }
-    ]
-
-    return (
+  return (
         <>
             <Card title="User Management">
                 <Form name="createUser" {...layout}>
@@ -25,7 +24,7 @@ const UserManagement = () => {
                             <Form.Item
                                 label='Username'
                                 name='username'
-                                rules={[{required: true, message: 'Please input your username!'}]}
+                                rules={[{ required: true, message: 'Please input your username!' }]}
                             >
                                 <Input/>
                             </Form.Item>
@@ -34,7 +33,7 @@ const UserManagement = () => {
                             <Form.Item
                                 label='Password'
                                 name='password'
-                                rules={[{required: true, message: 'Please input your password!'}]}
+                                rules={[{ required: true, message: 'Please input your password!' }]}
                                 className="mb-0"
                             >
                                 <Input.Password/>
@@ -46,18 +45,18 @@ const UserManagement = () => {
                             <Form.Item
                                 label='User Role'
                                 name='role'
-                                rules={[{required: true, message: ''}]}
+                                rules={[{ required: true, message: '' }]}
                             >
-                                <Radio.Group options={roleOptions} defaultValue={'admin'}  />
+                                <Radio.Group options={roleOptions} defaultValue={'admin'} />
                             </Form.Item>
                         </Col>
                         <Col span={8}>
                             <Form.Item
                                 label='Email'
                                 name='email'
-                                rules={[{required: true, message: 'Please input your email!'}]}
+                                rules={[{ required: true, message: 'Please input your email!' }]}
                             >
-                                <Input type={"email"}/>
+                                <Input type={'email'}/>
                             </Form.Item>
                         </Col>
                     </Row>
@@ -73,7 +72,7 @@ const UserManagement = () => {
                 </Form>
             </Card>
         </>
-    )
+  )
 }
 
 export default UserManagement

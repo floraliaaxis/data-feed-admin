@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 import Image from 'next/image'
 import Login from '../components/login'
 
-const LoginPage = ()=>{
+const LoginPage = () => {
   const { Header, Content } = Layout
   return (
     <>

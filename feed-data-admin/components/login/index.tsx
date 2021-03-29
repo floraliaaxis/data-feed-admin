@@ -1,18 +1,18 @@
-import {Input, Form, Button, Row, Col} from 'antd'
+import { Input, Form, Button, Row, Col } from 'antd'
 import Link from 'next/link'
 import React from 'react'
 
 const layout = {
-    labelCol: {span: 8},
-    wrapperCol: {span: 12}
+  labelCol: { span: 8 },
+  wrapperCol: { span: 12 }
 }
 
 const tailLayout = {
-    wrapperCol: {offset: 8, span: 16}
+  wrapperCol: { offset: 8, span: 16 }
 }
 
 const Login = () => {
-    return (
+  return (
         <div className="loginForm">
             <Row>
                 <Col span={10} offset={7}>
@@ -23,14 +23,14 @@ const Login = () => {
                         <Form.Item
                             label='Username'
                             name='username'
-                            rules={[{required: true, message: 'Please input your username!'}]}
+                            rules={[{ required: true, message: 'Please input your username!' }]}
                         >
                             <Input/>
                         </Form.Item>
                         <Form.Item
                             label='Password'
                             name='password'
-                            rules={[{required: true, message: 'Please input your password!'}]}
+                            rules={[{ required: true, message: 'Please input your password!' }]}
                             className="mb-0"
                         >
                             <Input.Password/>
@@ -54,7 +54,7 @@ const Login = () => {
               }
             `}</style>
         </div>
-    )
+  )
 }
 
 export default Login

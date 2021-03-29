@@ -1,13 +1,14 @@
-import {Layout, Row, Col, Button} from 'antd'
+import React from 'react'
+import { Layout } from 'antd'
 import HeaderCon from '../components/header'
 import FeedData from '../components/feedData'
 import UserManagement from '../components/userManagement'
-import ChangePassword from "../components/changePwd";
+import ChangePassword from '../components/changePwd'
 
-export default function Home() {
-    const { Content } = Layout
+export default function Home () {
+  const { Content } = Layout
 
-    return (
+  return (
         <Layout>
             <HeaderCon/>
             <Content>
@@ -16,5 +17,5 @@ export default function Home() {
                 <ChangePassword />
             </Content>
         </Layout>
-    )
+  )
 }
