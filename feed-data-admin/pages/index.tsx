@@ -6,7 +6,7 @@ import SearchJob from '../components/searchJob'
 import UserManagement from '../components/userManagement'
 import ChangePassword from '../components/changePwd'
 
-export default function Home() {
+export default function Home () {
   const { Content } = Layout
 
   return (

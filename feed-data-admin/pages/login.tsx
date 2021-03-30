@@ -1,32 +1,18 @@
 import React from 'react'
 import { Layout } from 'antd'
-import Image from 'next/image'
+import AnonymousHeader from '../components/header/anonymousHeader'
 import Login from '../components/login'
 
 const LoginPage = () => {
-  const { Header, Content } = Layout
+  const { Content } = Layout
   return (
     <>
       <Layout>
-        <Header>
-          <Image
-            src="/assets/ferguson-logo.svg"
-            alt="Ferguson"
-            width={230}
-            height={30}
-          />
-        </Header>
+        <AnonymousHeader />
         <Content>
           <Login />
         </Content>
       </Layout>
-      <style jsx>{`
-        .ant-layout-header {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      `}</style>
     </>
   )
 }

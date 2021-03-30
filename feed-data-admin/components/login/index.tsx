@@ -13,7 +13,7 @@ const tailLayout = {
 
 const Login = () => {
   return (
-    <div className="loginForm">
+    <div className="mt-80">
       <Row>
         <Col span={10} offset={7}>
           <Form {...layout} name="loginForm">
@@ -49,11 +49,6 @@ const Login = () => {
           </Form>
         </Col>
       </Row>
-      <style jsx>{`
-        .loginForm {
-          margin-top: 80px;
-        }
-      `}</style>
     </div>
   )
 }
