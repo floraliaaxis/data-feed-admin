@@ -2,12 +2,20 @@
   margin-bottom: 0;
 }
 
+.mt-16 {
+  margin-top: 16px;
+}
+
 .mt-30 {
   margin-top: 30px;
 }
 
 .mt-80 {
   margin-top: 80px;
+}
+
+.p-0 {
+  padding: 0;
 }
 
 .text-white {
@@ -38,4 +46,20 @@
 
 .ant-page-header-heading-title {
   .text-white();
+}
+
+body > * {
+  height: 100%;
+
+  .ant-layout {
+    height: 100%;
+
+    > .ant-layout-has-sider {
+      height: ~'calc(100% - 72px)';
+
+      .ant-menu-vertical {
+        height: 100%;
+      }
+    }
+  }
 }

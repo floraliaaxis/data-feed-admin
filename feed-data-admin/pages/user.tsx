@@ -1,30 +1,27 @@
 import React from 'react'
 import { Layout } from 'antd'
 import HeaderCon from '../components/header'
-import FeedData from '../components/feedData'
-import SearchJob from '../components/searchJob'
-
-import ChangePassword from '../components/changePwd'
 import Menu from '../components/menu'
+import SearchUser from '../components/searchUser'
 
-export default function Home() {
+const User = () => {
   const { Content, Sider } = Layout
 
   return (
     <Layout>
-      <HeaderCon title={'Dashboard'} />
+      <HeaderCon title={'User Management'} />
       <Layout>
         <Sider>
-          <Menu activeKey={'1'} />
+          <Menu activeKey={'2'} />
         </Sider>
         <Layout>
           <Content>
-            <FeedData />
-            <SearchJob />
-            <ChangePassword />
+            <SearchUser />
           </Content>
         </Layout>
       </Layout>
     </Layout>
   )
 }
+
+export default User

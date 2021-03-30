@@ -1,11 +1,15 @@
 import React from 'react'
 import { PageHeader, Button } from 'antd'
 
-const Header = () => {
+interface Props {
+  title: string
+}
+
+const Header = ({ title }: Props) => {
   return (
     <>
       <PageHeader
-        title="Dashboard"
+        title={title}
         extra={[
           <span className="text-white" key="UserName">
             Admin

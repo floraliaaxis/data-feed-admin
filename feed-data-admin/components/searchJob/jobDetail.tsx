@@ -28,13 +28,31 @@ const JobDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
     },
     {
       key: '4',
+      step: 100,
+      status: 'Complete',
+      dataProcess: 3000
+    },
+    {
+      key: '5',
       step: 'Step3',
       status: 'In Progress',
       dataProcess: 2323
     },
     {
-      key: '4',
+      key: '6',
       step: 70,
+      status: 'In Progress',
+      dataProcess: 2323
+    },
+    {
+      key: '7',
+      step: 'Step4',
+      status: 'In Progress',
+      dataProcess: 2323
+    },
+    {
+      key: '8',
+      step: 0,
       status: 'In Progress',
       dataProcess: 2323
     }
@@ -92,8 +110,8 @@ const JobDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
         }}
         footer={
           <Space>
-            <Button>Cancel</Button>
-            <Button type={'primary'}>Retry</Button>
+            <Button>Cancel Job</Button>
+            <Button type={'primary'}>Retry Job</Button>
           </Space>
         }
       >

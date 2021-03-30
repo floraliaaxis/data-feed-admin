@@ -1,15 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Card,
-  Button,
-  Row,
-  Col,
-  Table,
-  Form,
-  Select,
-  DatePicker,
-  Alert
-} from 'antd'
+import { Card, Button, Row, Col, Table, Form, Select, DatePicker } from 'antd'
 import JobDetail from './jobDetail'
 
 const { Option } = Select
@@ -101,15 +91,7 @@ const SearchJob = () => {
   return (
     <>
       <Card title="Job List">
-        <Alert
-          message="Data feed started successfully, please check the result later."
-          type="success"
-        />
-        <Alert
-          message="Sorry, data feed failed with error, please contact the administrator."
-          type="error"
-        />
-        <Form {...layout} name="loginForm">
+        <Form {...layout} name="searchJobForm">
           <Row gutter={16}>
             <Col span={9}>
               <Form.Item label="Job Type" name="jobType" rules={[]}>
