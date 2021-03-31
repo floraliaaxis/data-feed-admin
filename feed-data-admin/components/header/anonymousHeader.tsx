@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Layout, Image } from 'antd'
 
 const AnonymousHeader = () => {
@@ -6,12 +7,15 @@ const AnonymousHeader = () => {
   return (
     <>
       <Header>
-        <Image
-          src="/assets/ferguson-logo.svg"
-          alt="Ferguson"
-          width={230}
-          height={30}
-        />
+        <Link href="/login">
+          <Image
+            src="/assets/ferguson-logo.svg"
+            alt="Ferguson"
+            preview={false}
+            width={230}
+            height={30}
+          />
+        </Link>
       </Header>
     </>
   )

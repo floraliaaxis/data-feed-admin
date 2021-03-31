@@ -1,5 +1,6 @@
 import { Input, Form, Button, Row, Col } from 'antd'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 const layout = {
@@ -12,11 +13,19 @@ const tailLayout = {
 }
 
 const Login = () => {
+  const router = useRouter()
+
   return (
     <div className="mt-80">
       <Row>
         <Col span={10} offset={7}>
-          <Form {...layout} name="loginForm">
+          <Form
+            {...layout}
+            name="loginForm"
+            onFinish={() => {
+              router.push('/')
+            }}
+          >
             <Form.Item
               label="Username"
               name="username"
@@ -37,9 +46,7 @@ const Login = () => {
               <Input.Password />
             </Form.Item>
             <Form.Item {...tailLayout}>
-              <Link href="/">
-                <a>Forgot Password?</a>
-              </Link>
+              <Link href="/forgotPassword">Forgot Password?</Link>
             </Form.Item>
             <Form.Item {...tailLayout}>
               <Button type="primary" htmlType="submit">

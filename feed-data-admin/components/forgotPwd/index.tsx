@@ -1,5 +1,6 @@
 import { Input, Form, Button, Row, Col, Typography, Divider, Alert } from 'antd'
 import React from 'react'
+import { useRouter } from 'next/router'
 
 const layout = {
   labelCol: { span: 6 },
@@ -11,6 +12,7 @@ const tailLayout = {
 }
 
 const ForgotPwd = () => {
+  const router = useRouter()
   const { Title, Paragraph } = Typography
   return (
     <div className="mt-80">
@@ -23,7 +25,14 @@ const ForgotPwd = () => {
             your password.
           </Paragraph>
           <Alert type="error" message={'The email does not exist.'} />
-          <Form {...layout} name="forgotPwdForm" className="mt-30">
+          <Form
+            {...layout}
+            name="forgotPwdForm"
+            className="mt-30"
+            onFinish={() => {
+              router.push('/resetPassword')
+            }}
+          >
             <Form.Item
               label="Email"
               name="email"
@@ -33,7 +42,7 @@ const ForgotPwd = () => {
             </Form.Item>
             <Form.Item {...tailLayout}>
               <Button type="primary" htmlType="submit">
-                Forgot Password
+                Send
               </Button>
             </Form.Item>
           </Form>
