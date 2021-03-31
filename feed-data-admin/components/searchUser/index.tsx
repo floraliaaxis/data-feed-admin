@@ -8,10 +8,6 @@ const layout = {
   wrapperCol: { span: 18 }
 }
 
-const tailLayout = {
-  wrapperCol: { offset: 6, span: 18 }
-}
-
 const { Option } = Select
 
 const SearchJob = () => {
@@ -25,21 +21,24 @@ const SearchJob = () => {
       userName: 'test001',
       email: 'fsd@fg.com',
       role: 'Administrator',
-      created: '08/23/2020'
+      created: '08/23/2020',
+      enalbe: true
     },
     {
       key: '2',
       userName: 'test002',
       email: 'fsd2@fg.com',
       role: 'Read Only',
-      created: '08/23/2020'
+      created: '08/23/2020',
+      enalbe: true
     },
     {
       key: '3',
       userName: 'test003',
       email: 'fsd3@fg.com',
       role: 'Administrator',
-      created: '08/23/2020'
+      created: '08/23/2020',
+      enalbe: false
     }
   ]
 
@@ -69,7 +68,8 @@ const SearchJob = () => {
       dataIndex: 'action',
       key: 'action',
       // eslint-disable-next-line react/display-name
-      render: () => {
+      render: (text, row) => {
+        console.log('=================', row)
         return (
           <Space>
             <Button
@@ -79,7 +79,7 @@ const SearchJob = () => {
                 setIsDeleteModalVisible(true)
               }}
             >
-              Delete
+              {row.enalbe ? 'Enable' : 'Disable'}
             </Button>
             <Button
               type="link"
@@ -98,16 +98,22 @@ const SearchJob = () => {
 
   return (
     <>
-      <Card title="">
+      <Card title="User Management">
         <Form {...layout} name="searchUserForm">
-          <Row gutter={16} align={'bottom'}>
+          <Row gutter={16}>
             <Col span={9}>
               <Form.Item label="User Name" name="userName" rules={[]}>
                 <Input />
               </Form.Item>
+            </Col>
+            <Col span={9}>
               <Form.Item label="Email" name="email" rules={[]}>
                 <Input type={'email'} />
               </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={9}>
               <Form.Item label="User Role" name="role" rules={[]}>
                 <Select defaultValue="all">
                   <Option value="all">All</Option>
@@ -115,23 +121,32 @@ const SearchJob = () => {
                   <Option value="readOnly">Read Only</Option>
                 </Select>
               </Form.Item>
-              <Form.Item {...tailLayout}>
-                <Button type={'primary'}>Search User</Button>
-              </Form.Item>
             </Col>
-            <Col span={15} className="text-right">
-              <Button
-                type={'primary'}
-                onClick={() => {
-                  setIsModalVisible(true)
-                }}
-              >
-                Create User
-              </Button>
+          </Row>
+          <Row gutter={16}>
+            <Col span={9} offset={9}>
+              <Row justify={'end'}>
+                <Form.Item>
+                  <Button type={'primary'}>Search User</Button>
+                </Form.Item>
+              </Row>
             </Col>
           </Row>
         </Form>
-        {isModalVisible}
+      </Card>
+      <Card
+        title={'User List'}
+        extra={
+          <Button
+            type={'primary'}
+            onClick={() => {
+              setIsModalVisible(true)
+            }}
+          >
+            Create User
+          </Button>
+        }
+      >
         <Table dataSource={dataSource} columns={columns} className="mt-30" />
         <UserDetail
           isModalVisible={isModalVisible}
@@ -140,7 +155,7 @@ const SearchJob = () => {
         <ConfirmModal
           isModalVisible={isDeleteModalVisible}
           setIsModalVisible={setIsDeleteModalVisible}
-          message={'Delete the user account'}
+          message={'Update user status'}
         />
       </Card>
     </>

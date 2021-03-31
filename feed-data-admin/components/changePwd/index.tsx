@@ -1,20 +1,33 @@
 import React from 'react'
-import { Button, Form, Input, Card } from 'antd'
+import { Button, Form, Input, Space, Modal, Row } from 'antd'
 
 const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 }
+  labelCol: { span: 7 },
+  wrapperCol: { span: 17 }
 }
 
 const tailLayout = {
-  wrapperCol: { offset: 6, span: 18 }
+  wrapperCol: { offset: 7, span: 17 }
 }
 
-const ChangePassword = () => {
+interface Props {
+  isModalVisible: boolean
+  setIsModalVisible: any
+}
+
+const ChangePassword = ({ isModalVisible, setIsModalVisible }: Props) => {
   return (
     <>
-      <Card title="Change Password">
-        <Form name="changePassword" {...layout} style={{ width: 540 }}>
+      <Modal
+        title="Change Password"
+        visible={isModalVisible}
+        onCancel={() => {
+          setIsModalVisible(false)
+        }}
+        footer={null}
+        width={600}
+      >
+        <Form name="changePassword" {...layout}>
           <Form.Item
             label="New Password"
             name="newPassword"
@@ -37,12 +50,23 @@ const ChangePassword = () => {
             <Input.Password />
           </Form.Item>
           <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
+            <Row justify={'end'} className="mt-16">
+              <Space>
+                <Button
+                  onClick={() => {
+                    setIsModalVisible(false)
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button type="primary" htmlType="submit">
+                  Save
+                </Button>
+              </Space>
+            </Row>
           </Form.Item>
         </Form>
-      </Card>
+      </Modal>
     </>
   )
 }

@@ -1,18 +1,16 @@
 import React from 'react'
-import { Layout } from 'antd'
+import { Layout, Card } from 'antd'
 import HeaderCon from '../components/header'
 import FeedData from '../components/feedData'
-import SearchJob from '../components/searchJob'
-
-import ChangePassword from '../components/changePwd'
 import Menu from '../components/menu'
+import JobDetail from '../components/jobDetail'
 
 export default function Home() {
   const { Content, Sider } = Layout
 
   return (
     <Layout>
-      <HeaderCon title={'Dashboard'} />
+      <HeaderCon />
       <Layout>
         <Sider>
           <Menu activeKey={'1'} />
@@ -20,8 +18,9 @@ export default function Home() {
         <Layout>
           <Content>
             <FeedData />
-            <SearchJob />
-            <ChangePassword />
+            <Card title={'Job Detail'}>
+              <JobDetail />
+            </Card>
           </Content>
         </Layout>
       </Layout>

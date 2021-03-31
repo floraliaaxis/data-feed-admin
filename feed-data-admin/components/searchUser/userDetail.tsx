@@ -1,4 +1,4 @@
-import { Form, Input, Radio, Button, Space, Modal } from 'antd'
+import { Form, Input, Radio, Button, Space, Modal, Row } from 'antd'
 import React from 'react'
 
 const layout = {
@@ -25,18 +25,7 @@ const UserDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
         onCancel={() => {
           setIsModalVisible(false)
         }}
-        footer={
-          <Space>
-            <Button
-              onClick={() => {
-                setIsModalVisible(false)
-              }}
-            >
-              Cancel
-            </Button>
-            <Button type={'primary'}>Save</Button>
-          </Space>
-        }
+        footer={null}
       >
         <Form name="userForm" {...layout}>
           <Form.Item
@@ -67,6 +56,20 @@ const UserDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
           >
             <Input type={'email'} />
           </Form.Item>
+          <Row className={'mt-30'} justify={'end'}>
+            <Space>
+              <Button
+                onClick={() => {
+                  setIsModalVisible(false)
+                }}
+              >
+                Cancel
+              </Button>
+              <Button type={'primary'} htmlType={'submit'}>
+                Save
+              </Button>
+            </Space>
+          </Row>
         </Form>
       </Modal>
     </>

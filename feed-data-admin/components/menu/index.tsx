@@ -8,11 +8,17 @@ interface Props {
 
 const MenuCon = ({ activeKey }: Props) => {
   return (
-    <Menu selectedKeys={[activeKey]}>
+    <Menu selectedKeys={[activeKey]} theme="dark">
       <Menu.Item key="1">
         <Link href="/">Dashboard</Link>
       </Menu.Item>
       <Menu.Item key="2">
+        <Link href="/feedJobHistory">Feed Job History</Link>
+      </Menu.Item>
+      <Menu.Item key="3">
+        <Link href="">Scheduler Setting</Link>
+      </Menu.Item>
+      <Menu.Item key="4">
         <Link href="/user">User Management</Link>
       </Menu.Item>
     </Menu>

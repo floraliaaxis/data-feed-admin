@@ -1,5 +1,4 @@
 import { Input, Form, Button, Row, Col } from 'antd'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
@@ -25,6 +24,7 @@ const Login = () => {
             onFinish={() => {
               router.push('/')
             }}
+            requiredMark={false}
           >
             <Form.Item
               label="Username"
@@ -41,12 +41,8 @@ const Login = () => {
               rules={[
                 { required: true, message: 'Please input your password!' }
               ]}
-              className="mb-0"
             >
               <Input.Password />
-            </Form.Item>
-            <Form.Item {...tailLayout}>
-              <Link href="/forgotPassword">Forgot Password?</Link>
             </Form.Item>
             <Form.Item {...tailLayout}>
               <Button type="primary" htmlType="submit">

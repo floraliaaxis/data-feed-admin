@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 import { Card, Button, Row, Col, Table, Form, Select, DatePicker } from 'antd'
-import JobDetail from './jobDetail'
+import JobDetailModal from './jobDetail'
 
 const { Option } = Select
 
 const layout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 18 }
-}
-
-const tailLayout = {
-  wrapperCol: { offset: 6, span: 18 }
 }
 
 const SearchJob = () => {
@@ -90,7 +86,7 @@ const SearchJob = () => {
 
   return (
     <>
-      <Card title="Job List">
+      <Card title="Feed Job History">
         <Form {...layout} name="searchJobForm">
           <Row gutter={16}>
             <Col span={9}>
@@ -102,12 +98,8 @@ const SearchJob = () => {
                   <Option value="WCS Feed">WCS Feed</Option>
                 </Select>
               </Form.Item>
-              <Form.Item label="Start Time" name="startTime" rules={[]}>
-                <DatePicker />
-              </Form.Item>
-              <Form.Item label="End Time" name="endTime" rules={[]}>
-                <DatePicker />
-              </Form.Item>
+            </Col>
+            <Col span={9}>
               <Form.Item label="Status" name="status" rules={[]}>
                 <Select defaultValue="all">
                   <Option value="all">All</Option>
@@ -116,15 +108,33 @@ const SearchJob = () => {
                   <Option value="fail">Fail</Option>
                 </Select>
               </Form.Item>
-              <Form.Item {...tailLayout}>
-                <Button type={'primary'}>Search Job</Button>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={9}>
+              <Form.Item label="Start Time" name="startTime" rules={[]}>
+                <DatePicker />
               </Form.Item>
+            </Col>
+            <Col span={9}>
+              <Form.Item label="End Time" name="endTime" rules={[]}>
+                <DatePicker />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={9} offset={9}>
+              <Row justify={'end'}>
+                <Form.Item>
+                  <Button type={'primary'}>Search Job</Button>
+                </Form.Item>
+              </Row>
             </Col>
           </Row>
         </Form>
         {isModalVisible}
         <Table dataSource={dataSource} columns={columns} className="mt-30" />
-        <JobDetail
+        <JobDetailModal
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
         />
