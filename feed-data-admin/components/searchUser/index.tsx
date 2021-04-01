@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
-import { Card, Button, Row, Col, Table, Form, Input, Space, Select } from 'antd'
+import { Card, Button, Row, Col, Table, Form, Input, Space } from 'antd'
 import UserDetail from './userDetail'
-import ConfirmModal from '../modal/confirm'
 
 const layout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 18 }
 }
 
-const { Option } = Select
-
 const SearchJob = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
-  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState<boolean>(
-    false
-  )
+
   const dataSource = [
     {
       key: '1',
@@ -69,16 +64,9 @@ const SearchJob = () => {
       key: 'action',
       // eslint-disable-next-line react/display-name
       render: (text, row) => {
-        console.log('=================', row)
         return (
           <Space>
-            <Button
-              type="link"
-              className="p-0"
-              onClick={() => {
-                setIsDeleteModalVisible(true)
-              }}
-            >
+            <Button type="link" className="p-0">
               {row.enalbe ? 'Enable' : 'Disable'}
             </Button>
             <Button
@@ -113,49 +101,30 @@ const SearchJob = () => {
             </Col>
           </Row>
           <Row gutter={16}>
-            <Col span={9}>
-              <Form.Item label="User Role" name="role" rules={[]}>
-                <Select defaultValue="all">
-                  <Option value="all">All</Option>
-                  <Option value="admin">Administrator</Option>
-                  <Option value="readOnly">Read Only</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
             <Col span={9} offset={9}>
               <Row justify={'end'}>
                 <Form.Item>
-                  <Button type={'primary'}>Search User</Button>
+                  <Space size={'large'}>
+                    <Button
+                      type={'primary'}
+                      onClick={() => {
+                        setIsModalVisible(true)
+                      }}
+                    >
+                      Create User
+                    </Button>
+                    <Button type={'primary'}>Search User</Button>
+                  </Space>
                 </Form.Item>
               </Row>
             </Col>
           </Row>
         </Form>
-      </Card>
-      <Card
-        title={'User List'}
-        extra={
-          <Button
-            type={'primary'}
-            onClick={() => {
-              setIsModalVisible(true)
-            }}
-          >
-            Create User
-          </Button>
-        }
-      >
+
         <Table dataSource={dataSource} columns={columns} className="mt-30" />
         <UserDetail
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
-        />
-        <ConfirmModal
-          isModalVisible={isDeleteModalVisible}
-          setIsModalVisible={setIsDeleteModalVisible}
-          message={'Update user status'}
         />
       </Card>
     </>

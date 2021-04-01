@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Space, Button } from 'antd'
+import { Modal } from 'antd'
 import JobDetail from '../jobDetail'
 
 interface Props {
@@ -16,12 +16,7 @@ const JobDetailModal = ({ isModalVisible, setIsModalVisible }: Props) => {
         onCancel={() => {
           setIsModalVisible(false)
         }}
-        footer={
-          <Space>
-            <Button>Cancel Job</Button>
-            <Button type={'primary'}>Retry Job</Button>
-          </Space>
-        }
+        footer={null}
         width={600}
       >
         <JobDetail />

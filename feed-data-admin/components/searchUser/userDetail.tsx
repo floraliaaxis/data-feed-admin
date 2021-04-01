@@ -17,6 +17,11 @@ const UserDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
     { label: 'Read Only', value: 'readOnly' }
   ]
 
+  const statusOptions = [
+    { label: 'Enable', value: 'enable' },
+    { label: 'Disable', value: 'disable' }
+  ]
+
   return (
     <>
       <Modal
@@ -48,6 +53,13 @@ const UserDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
             rules={[{ required: true, message: '' }]}
           >
             <Radio.Group options={roleOptions} defaultValue={'admin'} />
+          </Form.Item>
+          <Form.Item
+            label="Status"
+            name="status"
+            rules={[{ required: true, message: '' }]}
+          >
+            <Radio.Group options={statusOptions} defaultValue={'enable'} />
           </Form.Item>
           <Form.Item
             label="Email"

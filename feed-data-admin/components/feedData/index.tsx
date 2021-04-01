@@ -1,24 +1,34 @@
 import React from 'react'
-import { Card, Button, Row, Col, Alert } from 'antd'
+import { Button, Row, Col, Alert, Divider, Space } from 'antd'
 
 const FeedData = () => {
   return (
     <>
-      <Card title="">
-        <Row gutter={16}>
-          <Col span={24} className="text-right">
-            <Button type={'primary'}>Run Data Feed</Button>
-            <Alert
-              message="Data feed started successfully, please check the result later."
-              type="success"
-            />
-            <Alert
-              message="Sorry, data feed failed with error, please contact the administrator."
-              type="error"
-            />
-          </Col>
-        </Row>
-      </Card>
+      <Alert
+        message="Data feed started successfully, please check the result later."
+        type="success"
+      />
+      <Alert
+        message="Sorry, data feed failed with error, please contact the administrator."
+        type="error"
+      />
+      <Row justify={'space-between'}>
+        <Col>
+          <Space>
+            <strong>Next Execution Time:</strong>
+            <span>07:21:00 08/23/2020</span>
+          </Space>
+        </Col>
+        <Col>
+          If you want to run data feed right now, click{' '}
+          <Button type={'link'} className="p-0">
+            Run Data Feed
+          </Button>{' '}
+          to start now.
+        </Col>
+      </Row>
+
+      <Divider className="mtb-8" />
     </>
   )
 }

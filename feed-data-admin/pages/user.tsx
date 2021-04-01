@@ -10,7 +10,7 @@ const User = () => {
   return (
     <Layout>
       <HeaderCon />
-      <Layout>
+      <Layout style={{ minHeight: 'calc(100vh - 80px)' }}>
         <Sider>
           <Menu activeKey={'4'} />
         </Sider>

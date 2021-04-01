@@ -16,7 +16,7 @@ const MenuCon = ({ activeKey }: Props) => {
         <Link href="/feedJobHistory">Feed Job History</Link>
       </Menu.Item>
       <Menu.Item key="3">
-        <Link href="">Scheduler Setting</Link>
+        <Link href="/scheduler">Scheduler Setting</Link>
       </Menu.Item>
       <Menu.Item key="4">
         <Link href="/user">User Management</Link>

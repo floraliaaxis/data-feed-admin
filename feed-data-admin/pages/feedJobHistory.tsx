@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <Layout>
       <HeaderCon />
-      <Layout>
+      <Layout style={{ minHeight: 'calc(100vh - 80px)' }}>
         <Sider>
           <Menu activeKey={'2'} />
         </Sider>

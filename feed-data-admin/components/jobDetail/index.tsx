@@ -1,94 +1,53 @@
 import React from 'react'
-import { Row, Col, Space, Table, Progress } from 'antd'
+import { Row, Col, Space, Table, Progress, Button, Typography } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
+import { Job } from '../../types/job'
 
+const { Paragraph } = Typography
 const JobDetail = () => {
   const dataSource = [
     {
       key: '1',
       step: 'Step1',
       status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: true
+      dataProcessed: 2323,
+      total: 5000,
+      percentage: 30
     },
     {
       key: '2',
-      step: 30,
-      status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: true
+      step: 'Step2',
+      status: 'Complete',
+      dataProcessed: 5000,
+      total: 5000,
+      percentage: 100
     },
     {
       key: '3',
-      step: 'Step2',
-      status: 'Complete',
-      dataProcess: 3000,
-      progressBar: true
+      step: 'Step3',
+      status: 'In Progress',
+      dataProcessed: 2323,
+      total: 5000,
+      percentage: 30
     },
     {
       key: '4',
-      step: 100,
-      status: 'Complete',
-      dataProcess: 3000,
-      progressBar: true
+      step: 'Step4',
+      status: 'In Progress',
+      dataProcessed: 0,
+      total: 5000,
+      percentage: 0
     },
     {
       key: '5',
-      step: 'Step3',
-      status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: true
-    },
-    {
-      key: '6',
-      step: 70,
-      status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: true
-    },
-    {
-      key: '7',
-      step: 'Step4',
-      status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: true
-    },
-    {
-      key: '8',
-      step: 0,
-      status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: true
-    },
-    {
-      key: '9',
       step: 'Step5',
       status: 'In Progress',
-      dataProcess: 2323,
-      progressBar: false
+      dataProcess: 2323
     }
   ]
 
   const renderContent = (text, row) => {
-    if (typeof row.step === 'number') {
-      if (text === row.step) {
-        return {
-          children: <Progress percent={text} />,
-          props: {
-            colSpan: 3
-          }
-        }
-      }
-
-      return {
-        children: text,
-        props: {
-          colSpan: 0
-        }
-      }
-    }
-
-    if (!row.progressBar && row.status === text) {
+    if (!row.percentage && row.percentage !== 0 && row.status === text) {
       return (
         <Space>
           {text}
@@ -115,8 +74,8 @@ const JobDetail = () => {
     },
     {
       title: 'Data Processed',
-      dataIndex: 'dataProcess',
-      key: 'dataProcess',
+      dataIndex: 'dataProcessed',
+      key: 'dataProcessed',
       render: renderContent
     }
   ]
@@ -160,7 +119,27 @@ const JobDetail = () => {
         columns={columns}
         className="mt-30"
         pagination={false}
+        expandable={{
+          // eslint-disable-next-line react/display-name
+          expandedRowRender: (record: Job) => (
+            <>
+              <Progress percent={record.percentage} />
+              <Paragraph className="text-sm mb-0 text-center">
+                {record.dataProcessed}/{record.total}
+              </Paragraph>
+            </>
+          ),
+          rowExpandable: record => record.percentage || record.percentage === 0,
+          defaultExpandAllRows: true,
+          expandIconColumnIndex: -1
+        }}
       />
+      <Row justify={'end'} className="mt-30">
+        <Space size={'large'}>
+          <Button>Cancel Job</Button>
+          <Button type={'primary'}>Retry Job</Button>
+        </Space>
+      </Row>
     </>
   )
 }

@@ -1,11 +1,10 @@
 import React from 'react'
-import { Layout, Card } from 'antd'
+import { Layout } from 'antd'
 import HeaderCon from '../components/header'
-import FeedData from '../components/feedData'
 import Menu from '../components/menu'
-import JobDetail from '../components/jobDetail'
+import Schedular from '../components/schedular'
 
-export default function Home() {
+const Scheduler = () => {
   const { Content, Sider } = Layout
 
   return (
@@ -13,17 +12,16 @@ export default function Home() {
       <HeaderCon />
       <Layout style={{ minHeight: 'calc(100vh - 80px)' }}>
         <Sider>
-          <Menu activeKey={'1'} />
+          <Menu activeKey={'3'} />
         </Sider>
         <Layout>
           <Content>
-            <Card title={'Dashboard'}>
-              <FeedData />
-              <JobDetail />
-            </Card>
+            <Schedular />
           </Content>
         </Layout>
       </Layout>
     </Layout>
   )
 }
+
+export default Scheduler
