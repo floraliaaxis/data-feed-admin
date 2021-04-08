@@ -12,7 +12,8 @@ const JobDetail = () => {
       status: 'In Progress',
       dataProcessed: 2323,
       total: 5000,
-      percentage: 30
+      percentage: 30,
+      duration: '30 minutes'
     },
     {
       key: '2',
@@ -20,7 +21,8 @@ const JobDetail = () => {
       status: 'Complete',
       dataProcessed: 5000,
       total: 5000,
-      percentage: 100
+      percentage: 100,
+      duration: '30 minutes'
     },
     {
       key: '3',
@@ -28,7 +30,8 @@ const JobDetail = () => {
       status: 'In Progress',
       dataProcessed: 2323,
       total: 5000,
-      percentage: 30
+      percentage: 30,
+      duration: '30 minutes'
     },
     {
       key: '4',
@@ -36,13 +39,15 @@ const JobDetail = () => {
       status: 'In Progress',
       dataProcessed: 0,
       total: 5000,
-      percentage: 0
+      percentage: 0,
+      duration: '30 minutes'
     },
     {
       key: '5',
       step: 'Step5',
       status: 'In Progress',
-      dataProcess: 2323
+      dataProcessed: 2323,
+      duration: '30 minutes'
     }
   ]
 
@@ -63,8 +68,7 @@ const JobDetail = () => {
     {
       title: 'Steps',
       dataIndex: 'step',
-      key: 'step',
-      render: renderContent
+      key: 'step'
     },
     {
       title: 'Status',
@@ -75,7 +79,12 @@ const JobDetail = () => {
     {
       title: 'Data Processed',
       dataIndex: 'dataProcessed',
-      key: 'dataProcessed',
+      key: 'dataProcessed'
+    },
+    {
+      title: 'Duration',
+      dataIndex: 'duration',
+      key: 'duration',
       render: renderContent
     }
   ]
@@ -111,6 +120,18 @@ const JobDetail = () => {
           <Space>
             <strong>End Time:</strong>
             <span>07:21:00 08/23/2020</span>
+          </Space>
+        </Col>
+        <Col span={12}>
+          <Space>
+            <strong>Started by:</strong>
+            <span>Manually/Scheduler</span>
+          </Space>
+        </Col>
+        <Col span={12}>
+          <Space>
+            <strong>Duration:</strong>
+            <span>120 minutes</span>
           </Space>
         </Col>
       </Row>

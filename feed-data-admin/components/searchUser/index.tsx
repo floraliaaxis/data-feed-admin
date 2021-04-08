@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Card, Button, Row, Col, Table, Form, Input, Space } from 'antd'
 import UserDetail from './userDetail'
+import ChangePassword from '../changePwd'
 
 const layout = {
   labelCol: { span: 6 },
@@ -9,6 +10,10 @@ const layout = {
 
 const SearchJob = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+  const [
+    isChangePwdModalVisible,
+    setIsChangePwdModalVisible
+  ] = useState<boolean>(false)
 
   const dataSource = [
     {
@@ -56,7 +61,9 @@ const SearchJob = () => {
     {
       title: 'Created',
       dataIndex: 'created',
-      key: 'created'
+      key: 'created',
+      sorter: true,
+      showSorterTooltip: false
     },
     {
       title: 'Action',
@@ -65,9 +72,18 @@ const SearchJob = () => {
       // eslint-disable-next-line react/display-name
       render: (text, row) => {
         return (
-          <Space>
+          <Space size={'middle'}>
             <Button type="link" className="p-0">
-              {row.enalbe ? 'Enable' : 'Disable'}
+              {row.enalbe ? 'Disable' : 'Enable'}
+            </Button>
+            <Button
+              type="link"
+              className="p-0"
+              onClick={() => {
+                setIsChangePwdModalVisible(true)
+              }}
+            >
+              Change Password
             </Button>
             <Button
               type="link"
@@ -125,6 +141,10 @@ const SearchJob = () => {
         <UserDetail
           isModalVisible={isModalVisible}
           setIsModalVisible={setIsModalVisible}
+        />
+        <ChangePassword
+          isModalVisible={isChangePwdModalVisible}
+          setIsModalVisible={setIsChangePwdModalVisible}
         />
       </Card>
     </>

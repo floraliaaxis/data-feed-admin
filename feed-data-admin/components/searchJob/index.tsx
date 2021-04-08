@@ -1,5 +1,15 @@
 import React, { useState } from 'react'
-import { Card, Button, Row, Col, Table, Form, Select, DatePicker } from 'antd'
+import {
+  Card,
+  Button,
+  Row,
+  Col,
+  Table,
+  Form,
+  Select,
+  DatePicker,
+  Space
+} from 'antd'
 import JobDetailModal from './jobDetail'
 
 const { Option } = Select
@@ -10,38 +20,44 @@ const layout = {
 }
 
 const SearchJob = () => {
+  const { RangePicker } = DatePicker
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+  const [jobType, setJobType] = useState<string>('Full Feed')
   const dataSource = [
     {
       key: '1',
       id: 'Job001',
-      jobType: 'All',
+      jobType: 'Full Feed',
       startDate: '07:21:00 08/23/2020',
       endDate: '07:21:00 08/23/2020',
+      duration: '120 minutes',
       status: 'Success'
     },
     {
       key: '2',
       id: 'Job002',
-      jobType: 'All',
+      jobType: 'Full Feed',
       startDate: '07:21:00 08/23/2020',
       endDate: '07:21:00 08/23/2020',
+      duration: '120 minutes',
       status: 'Failed'
     },
     {
       key: '3',
       id: 'Job003',
-      jobType: 'All',
+      jobType: 'Full Feed',
       startDate: '07:21:00 08/23/2020',
       endDate: '07:21:00 08/23/2020',
+      duration: '120 minutes',
       status: 'Failed'
     },
     {
       key: '4',
       id: 'Job004',
-      jobType: 'All',
+      jobType: 'Full Feed',
       startDate: '07:21:00 08/23/2020',
       endDate: '07:21:00 08/23/2020',
+      duration: '120 minutes',
       status: 'Failed'
     }
   ]
@@ -70,12 +86,23 @@ const SearchJob = () => {
     {
       title: 'Start Date',
       dataIndex: 'startDate',
-      key: 'startDate'
+      key: 'startDate',
+      sorter: true,
+      showSorterTooltip: false
     },
     {
       title: 'End Date',
       dataIndex: 'endDate',
-      key: 'endDate'
+      key: 'endDate',
+      sorter: true,
+      showSorterTooltip: false
+    },
+    {
+      title: 'Duration',
+      dataIndex: 'duration',
+      key: 'duration',
+      sorter: true,
+      showSorterTooltip: false
     },
     {
       title: 'Status',
@@ -91,11 +118,15 @@ const SearchJob = () => {
           <Row gutter={16}>
             <Col span={9}>
               <Form.Item label="Job Type" name="jobType" rules={[]}>
-                <Select defaultValue="all">
-                  <Option value="all">All</Option>
-                  <Option value="Full Feed">Full Feed</Option>
-                  <Option value="Partial Feed">Partial Feed</Option>
-                  <Option value="WCS Feed">WCS Feed</Option>
+                <Select
+                  defaultValue="FullFeed"
+                  onSelect={(value, key) => {
+                    setJobType(key.children)
+                  }}
+                >
+                  <Option value="FullFeed">Full Feed</Option>
+                  <Option value="PartialFeed">Partial Feed</Option>
+                  <Option value="WCSFeed">WCS Feed</Option>
                 </Select>
               </Form.Item>
             </Col>
@@ -113,12 +144,12 @@ const SearchJob = () => {
           <Row gutter={16}>
             <Col span={9}>
               <Form.Item label="Start Time" name="startTime" rules={[]}>
-                <DatePicker />
+                <RangePicker />
               </Form.Item>
             </Col>
             <Col span={9}>
               <Form.Item label="End Time" name="endTime" rules={[]}>
-                <DatePicker />
+                <RangePicker />
               </Form.Item>
             </Col>
           </Row>
@@ -126,7 +157,12 @@ const SearchJob = () => {
             <Col span={9} offset={9}>
               <Row justify={'end'}>
                 <Form.Item>
-                  <Button type={'primary'}>Search Job</Button>
+                  <Space size={'large'}>
+                    {jobType && jobType !== 'All' && (
+                      <Button type={'primary'}>Run {jobType} Data Feed</Button>
+                    )}
+                    <Button type={'primary'}>Search Job</Button>
+                  </Space>
                 </Form.Item>
               </Row>
             </Col>

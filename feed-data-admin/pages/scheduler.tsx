@@ -2,9 +2,9 @@ import React from 'react'
 import { Layout } from 'antd'
 import HeaderCon from '../components/header'
 import Menu from '../components/menu'
-import Schedular from '../components/schedular'
+import Scheduler from '../components/scheduler'
 
-const Scheduler = () => {
+const SchedulerPage = () => {
   const { Content, Sider } = Layout
 
   return (
@@ -16,7 +16,7 @@ const Scheduler = () => {
         </Sider>
         <Layout>
           <Content>
-            <Schedular />
+            <Scheduler />
           </Content>
         </Layout>
       </Layout>
@@ -24,4 +24,4 @@ const Scheduler = () => {
   )
 }
 
-export default Scheduler
+export default SchedulerPage

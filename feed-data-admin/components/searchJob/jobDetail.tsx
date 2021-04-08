@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from 'antd'
+import { Alert, Modal } from 'antd'
 import JobDetail from '../jobDetail'
 
 interface Props {
@@ -19,6 +19,7 @@ const JobDetailModal = ({ isModalVisible, setIsModalVisible }: Props) => {
         footer={null}
         width={600}
       >
+        <Alert message="Error Text" type="error" />
         <JobDetail />
       </Modal>
     </>

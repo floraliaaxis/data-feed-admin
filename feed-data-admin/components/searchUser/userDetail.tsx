@@ -41,13 +41,6 @@ const UserDetail = ({ isModalVisible, setIsModalVisible }: Props) => {
             <Input />
           </Form.Item>
           <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
-          <Form.Item
             label="User Role"
             name="role"
             rules={[{ required: true, message: '' }]}

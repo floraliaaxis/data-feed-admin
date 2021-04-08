@@ -7,7 +7,6 @@ import JobDetail from '../components/jobDetail'
 
 export default function Home() {
   const { Content, Sider } = Layout
-
   return (
     <Layout>
       <HeaderCon />
