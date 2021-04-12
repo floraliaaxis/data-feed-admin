@@ -41,8 +41,12 @@ const Login = () => {
               rules={[
                 { required: true, message: 'Please input your password!' }
               ]}
+              className="mb-0"
             >
               <Input.Password />
+            </Form.Item>
+            <Form.Item {...tailLayout} className="text-sm">
+              Forget your password? contact the administrator for help.
             </Form.Item>
             <Form.Item {...tailLayout}>
               <Button type="primary" htmlType="submit">

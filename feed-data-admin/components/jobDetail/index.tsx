@@ -13,7 +13,9 @@ const JobDetail = () => {
       dataProcessed: 2323,
       total: 5000,
       percentage: 30,
-      duration: '30 minutes'
+      duration: '30 minutes',
+      startDate: '07:21:00 08/23/2020',
+      endDate: '07:21:00 08/23/2020'
     },
     {
       key: '2',
@@ -22,7 +24,9 @@ const JobDetail = () => {
       dataProcessed: 5000,
       total: 5000,
       percentage: 100,
-      duration: '30 minutes'
+      duration: '30 minutes',
+      startDate: '07:21:00 08/23/2020',
+      endDate: '07:21:00 08/23/2020'
     },
     {
       key: '3',
@@ -31,7 +35,9 @@ const JobDetail = () => {
       dataProcessed: 2323,
       total: 5000,
       percentage: 30,
-      duration: '30 minutes'
+      duration: '30 minutes',
+      startDate: '07:21:00 08/23/2020',
+      endDate: '07:21:00 08/23/2020'
     },
     {
       key: '4',
@@ -40,14 +46,18 @@ const JobDetail = () => {
       dataProcessed: 0,
       total: 5000,
       percentage: 0,
-      duration: '30 minutes'
+      duration: '30 minutes',
+      startDate: '07:21:00 08/23/2020',
+      endDate: '07:21:00 08/23/2020'
     },
     {
       key: '5',
       step: 'Step5',
       status: 'In Progress',
       dataProcessed: 2323,
-      duration: '30 minutes'
+      duration: '30 minutes',
+      startDate: '07:21:00 08/23/2020',
+      endDate: '07:21:00 08/23/2020'
     }
   ]
 
@@ -86,6 +96,16 @@ const JobDetail = () => {
       dataIndex: 'duration',
       key: 'duration',
       render: renderContent
+    },
+    {
+      title: 'Start Date',
+      dataIndex: 'startDate',
+      key: 'startDate'
+    },
+    {
+      title: 'End Date',
+      dataIndex: 'endDate',
+      key: 'endDate'
     }
   ]
 
@@ -125,7 +145,7 @@ const JobDetail = () => {
         <Col span={12}>
           <Space>
             <strong>Started by:</strong>
-            <span>Manually/Scheduler</span>
+            <span>Username/Scheduler</span>
           </Space>
         </Col>
         <Col span={12}>

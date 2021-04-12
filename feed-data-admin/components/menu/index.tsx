@@ -21,6 +21,9 @@ const MenuCon = ({ activeKey }: Props) => {
       <Menu.Item key="4">
         <Link href="/user">User Management</Link>
       </Menu.Item>
+      <Menu.Item key="5">
+        <Link href="/troubleShooting">Trouble Shooting</Link>
+      </Menu.Item>
     </Menu>
   )
 }

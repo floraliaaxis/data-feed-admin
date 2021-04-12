@@ -17,7 +17,7 @@ const JobDetailModal = ({ isModalVisible, setIsModalVisible }: Props) => {
           setIsModalVisible(false)
         }}
         footer={null}
-        width={600}
+        width={800}
       >
         <Alert message="Error Text" type="error" />
         <JobDetail />
