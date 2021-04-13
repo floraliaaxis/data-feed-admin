@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Space, Table, Alert } from 'antd'
 import { ClockCircleOutlined } from '@ant-design/icons'
+import CronDetail from './detail'
 
 const Scheduler = () => {
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+
   const dataSource = [
     {
       key: '1',
@@ -60,7 +63,11 @@ const Scheduler = () => {
       render: (text, row) => {
         return (
           <Space size={'middle'}>
-            <Button type="link" className="p-0" onClick={() => {}}>
+            <Button
+              type="link"
+              className="p-0"
+              onClick={() => setIsModalVisible(true)}
+            >
               Re-schedule
             </Button>
             <Button type="link" className="p-0">
@@ -87,6 +94,10 @@ const Scheduler = () => {
           banner
         />
         <Table dataSource={dataSource} columns={columns} className="mt-30" />
+        <CronDetail
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
+        />
       </Card>
     </>
   )
